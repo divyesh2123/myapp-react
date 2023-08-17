@@ -1,0 +1,30 @@
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th scope="col">#</th>
+			<th scope="col">Id</th>
+			<th scope="col">Name</th>
+			
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let country of listacount; index as i">
+			<th scope="row">{{ i + 1 }}</th>
+			
+			<td>{{ country.Id }}</td>
+            <td>{{ country.Name  }}</td>
+			
+		</tr>
+	</tbody>
+</table>
+
+
+
+
+
+
+<app-account ></app-account>
+<hr />
+
+<pre>{{ closeResult }}</pre>
