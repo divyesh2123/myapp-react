@@ -27,7 +27,7 @@
 					<input
 						id="Name"
 						class="form-control"
-						formControlName="Name"
+						formControlName="name"
 						type="text"
 						
 					/>
@@ -37,6 +37,8 @@
 		</form>
 	</div>
 	<div class="modal-footer">
-		<button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+		<button type="button" class="btn btn-outline-dark" (click)="saveInformation()">Save</button>
 	</div>
 </ng-template>
+
+{{editIndex}}

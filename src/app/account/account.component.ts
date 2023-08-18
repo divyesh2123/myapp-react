@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
@@ -7,17 +7,39 @@ import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
   templateUrl: './account.component.html',
   styleUrls: ['./account.component.css']
 })
-export class AccountComponent {
+export class AccountComponent implements OnInit, AfterViewInit{
+
+	 
+	@Output() myOutput:EventEmitter<any>=
+	 new EventEmitter(); 
+
+	 @Input() editIndex:any;
 
 
-  constructor(private modalService: NgbModal,private fb : FormBuilder) {
+  constructor(private modalService: NgbModal,
+	private fb : FormBuilder) {
+
+		
 
   }
 
+  ngOnInit() {
+     
+	console.log(this.editIndex);
+  }
+
+  ngAfterViewInit()
+  {
+	console.log(this.editIndex);
+
+  }
+
+  
+
   myform = this.fb.group({
 
-    Id : [],
-    Name: []
+    Id : [''],
+    name: ['']
 
   })
 
@@ -48,6 +70,18 @@ export class AccountComponent {
 		} else {
 			return `with: ${reason}`;
 		}
+	}
+
+	saveInformation()
+	{
+		this.myOutput.emit(this.myform.value);
+		this.modalService.dismissAll();
+	}
+
+	opentest(index:any)
+	{
+		console.log(index);
+		this.open(content as any);
 	}
 
 

@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { AccountComponent } from '../account/account.component';
 
 @Component({
   selector: 'app-accountlist',
@@ -8,7 +9,11 @@ import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class AccountlistComponent {
 
+  @ViewChild('child') child:AccountComponent | undefined;
+
   listacount : any[] = [];
+
+  index:number = -1;
 
   closeResult = '';
 
@@ -22,6 +27,22 @@ export class AccountlistComponent {
     
   }
 
+  addItems(da: any)
+  {
+    this.listacount.push(da);
+  }
+
+  deleteInfo(index:number)
+  {
+    this.listacount.splice(index,1);
+  }
+
+  editData(a:number)
+  {
+    this.index = a;
+    this.child?.opentest(a);
+  
+  }
 	
 
 }

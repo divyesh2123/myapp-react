@@ -5,6 +5,8 @@
 			<th scope="col">#</th>
 			<th scope="col">Id</th>
 			<th scope="col">Name</th>
+			<th scope="col">Delete </th>
+			<th scope="col">Edit </th>
 			
 		</tr>
 	</thead>
@@ -13,7 +15,10 @@
 			<th scope="row">{{ i + 1 }}</th>
 			
 			<td>{{ country.Id }}</td>
-            <td>{{ country.Name  }}</td>
+            <td>{{ country.name  }}</td>
+
+			<td><button class="btn btn-primary" (click)="deleteInfo(i)">Delete</button></td>
+			<td><button class="btn btn-primary  " (click)="editData(i)" >Edit</button></td>
 			
 		</tr>
 	</tbody>
@@ -24,7 +29,7 @@
 
 
 
-<app-account ></app-account>
+<app-account #child  (myOutput)="addItems($event)"  [editIndex]="index"></app-account>
 <hr />
 
 <pre>{{ closeResult }}</pre>
