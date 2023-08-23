@@ -26,10 +26,11 @@
 
 
 
+<button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button>
 
 
-
-<app-account #child  (myOutput)="addItems($event)"  [editIndex]="index"></app-account>
+<app-account #child  (myOutput)="addItems($event)"  
+[editIndex]="index"  #content></app-account>
 <hr />
 
 <pre>{{ closeResult }}</pre>
