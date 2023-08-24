@@ -65,6 +65,13 @@ export class AccountlistComponent {
 		}
 	}
 
+  openVideoPopup(link:any) {
+    const modalRef = this.modalService.open(AccountComponent);
+   
+   
+    // modalRef.componentInstance.src = link;
+  }
+
 	
 
 }

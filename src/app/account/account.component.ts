@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ModalDismissReasons, NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-account',
@@ -17,7 +17,7 @@ export class AccountComponent implements OnInit, AfterViewInit{
 
 
   constructor(private modalService: NgbModal,
-	private fb : FormBuilder) {
+	private fb : FormBuilder,public activeModal: NgbActiveModal) {
 
 		
 
